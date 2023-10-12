@@ -68,7 +68,7 @@ const MarkdownPreviewer = () => {
           dangerouslySetInnerHTML={{ __html: html }}
           className={`${
             editorMaximized ? "hide" : "show"
-          } border-2 border-amber-700 bg-amber-100`}
+          } px-4 border-2 border-amber-700 bg-amber-100`}
         />
       </div>
     </>
