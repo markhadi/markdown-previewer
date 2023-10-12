@@ -2,26 +2,121 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body {
+  @apply min-h-screen p-6 bg-amber-300 transition-all duration-300;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+textarea {
+  @apply w-full min-h-[200px] h-60 outline-none border-2 border-amber-700 bg-amber-100 transition-all duration-300;
+}
+
+h1 {
+  @apply text-4xl text-gray-800 font-bold border-b-2 border-solid border-gray-800 my-4;
+}
+
+h2 {
+  @apply text-3xl text-gray-800 font-bold border-b-2 border-solid border-gray-800 my-4;
+}
+
+h3 {
+  @apply text-2xl text-gray-800 font-bold my-4;
+}
+
+pre {
+  @apply overflow-auto;
+}
+
+span {
+  @apply block font-bold text-xl text-stone-800 my-4;
+}
+
+p {
+  @apply my-4;
+}
+
+code {
+  @apply bg-white text-red-800 p-1;
+}
+
+pre > code {
+  @apply block w-full;
+}
+
+a {
+  @apply underline text-cyan-800;
+}
+
+blockquote {
+  @apply border-l-2 border-solid border-slate-950 pl-1 ml-6;
+}
+
+table {
+  @apply border-collapse border border-slate-950 my-4;
+}
+
+th,
+td {
+  @apply border-2 border-slate-950 text-left p-1;
+}
+
+ul {
+  @apply list-disc pl-7 my-4;
+}
+
+ul ul {
+  @apply list-[circle] my-0;
+}
+
+ul ul ul {
+  @apply list-[square] my-0;
+}
+
+ol {
+  @apply my-4 pl-7 list-decimal;
+}
+
+.maximized {
+  height: calc(100vh - 118px) !important;
+}
+
+.minimized_textarea {
+  @apply h-60;
+}
+
+.hide {
+  @apply relative -z-10 opacity-0 min-h-0 h-0 transition-all duration-300 hide_element;
+}
+
+.show {
+  @apply relative z-10 transition-all delay-300 duration-300 show_element;
+}
+
+@keyframes showElement {
+  0% {
+    opacity: 0;
+    height: 0;
+  }
+  100% {
+    opacity: 1;
+    height: auto;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.show_element {
+  animation: showElement 100ms;
+}
+
+@keyframes hideElement {
+  0% {
+    opacity: 1;
+    height: auto;
+  }
+  100% {
+    opacity: 0;
+    height: 0;
+  }
+}
+
+.hide_element {
+  animation: hideElement 100ms;
 }
